@@ -1,11 +1,11 @@
-window.addEventListener('load', start);
+window.addEventListener('load', init);
 
 // Global Variables
 let time = 5;
 let score = 0;
 let isPlaying;
 
-//Targeting DOM Elements
+//Target DOM Elements
 const wordInput = document.querySelector('#word-input');
 const currentWord = document.querySelector('#current-word');
 const scoreDisplay = document.querySelector('#score');
@@ -32,7 +32,16 @@ const words = [
     'supercalifragilisticexpialidocious',
 ];
 
-//Start Game
-function start() {
-    console.log('start')
+//Initialise game function
+function init() {
+    //Load word from array
+    showWord(words)
 };
+
+//Select then show random word from words array
+function showWord(words) {
+    //Generate random array index
+    const randIndex = Math.floor(Math.random() * words.length);
+    //Output random word
+    currentWord.innerHTML = words[randIndex];
+}
